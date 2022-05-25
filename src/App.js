@@ -1,46 +1,67 @@
-import { useState } from "react"; /*es un hook,funcinoes internas de react q permite usar caractirista de react*/
+import { useState, useEffect } from "react"; /*es un hook,funcinoes internas de react q permite usar caractirista de react*/
 import Product from "./components/Product";
+import { v4 as uuidv4 } from 'uuid';
+import Header from "./components/shared/layout/Header";
+import Footer from "./components/shared/layout/Footer";
+import ProductContainer from "./components/ProductContainer";
+import Main from "./components/shared/layout/Main";
+import Layout from "./components/shared/layout/Layout";
 
-function App() {
-  
+function App() {  
+  const [loadingProducts, setLoadingProducts] = useState(false);  /*No existe hoisting en react asi q pusimos arriba estos const*/
+  //en el useState variable, función que obliga a hacer cambio - Destructuring
+  const [products, setProducts] = useState([]); //el parámetro de entrada es el valor inicial de ese estado
 
-    const [products, setProducts] = useState([
-      {
-        "id":1,  
-        "name":"Razer Cynosa V2",
-          "desc": "Teclado para juegos gamer ._.",
-          "price": 240,
-          "stock":12
-      },
-      {
-        "id":2,
-          "name":"Mouse Logi G605",
-          "desc": "mouse con luces para verte gamer pero es solo finta xd",
-          "price": 290,
-          "stock":16
-      },
-      {
-        "id":3,
-          "name":"Micrófono HyperX",
-          "desc": "microfono gamer ",
-          "price": 320,
-          "stock":52
-      }
-  ]);
+
+
+  //Nos permite trabajar con 3 fases del ciclo de vida (inicialización, actualización, destrucción)  
+  //Todos los useEffects invocan su función en la fase de inicialización
+  useEffect(() =>{
+    //Trabaja en la fase de inicialización del componente
+    console.log("Componente Inicializado");
+    fetchProducts();
+  }, []); //inicializar algo sin depencias usamos array vacío
+
+
+  useEffect(()=>{
+    console.log("Actualización de productos");
+  },[products]);//arreglo de dependencias | ejecuta la función cada q 'products' se actualiza (elementos dentro del array ese -.-)
+
+    
+  const fetchProducts = async () =>{
+    setLoadingProducts(true);
+    console.log('fetch products');
+    const Products_url = 'http://localhost:4000/products';
+    const productsData = await fetch(Products_url);
+    const productsJSON = await productsData.json(); //cuando se actualiza un estado RAECT vuelve a renderizar un componente
+    setProducts (productsJSON);
+    console.log(productsJSON);
+    setLoadingProducts(false);
+  }
+
 
   /*El componente se vuelve a renderizar cuando un estado o un prop ha cambiado*/
 
   return (
+    
     <div> 
+      {console.log("Renderizando App")}
       {/*los name se llaman propiedads (props) y en html son atributos*/}
       {/*Los props se pasan de padres a hijos*/}
-      {products.map(product=> 
-      <Product name={product.name}
-       desc={product.desc} 
-       price={product.price} 
-       stock={product.stock}/>
-)}
+
+      {/* products.map(product =>
+      <Product key={uuidv4()} name={product.name} desc={product.desc} price={product.price}
+      stock = {product.stock} />) */}
+
+      <Layout>
+        <ProductContainer products={products} loading = {loadingProducts}/>  
+      </Layout>
+      
+      
+            
     </div>
+    //el return se ejecutará en el momento del montaje y se llamará cada vez que se actualice el componente
+    // un componente se actualiza cada que cambia algún estado o tambien cambia el valor de alguna 'prop'
   );
 }
 

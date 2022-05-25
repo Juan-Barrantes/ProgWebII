@@ -1,18 +1,21 @@
 {
     "products":[
         {
+            "id":"a1",
             "name":"Razer Cynosa V2",
             "desc": "Teclado para juegos gamer ._.",
             "price": 240,
             "stock":12
         },
         {
+            "id":"a2",
             "name":"Mouse Logi G605",
             "desc": "mouse con luces para verte gamer pero es solo finta xd",
             "price": 290,
             "stock":16
         },
         {
+            "id":"a3",
             "name":"Micrófono HyperX",
             "desc": "microfono gamer ",
             "price": 320,
