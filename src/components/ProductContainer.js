@@ -11,10 +11,7 @@ const ProductContainer = ({ products, loading }) => {
                 :
                 products.map(product =>
                     <Product key={product.id}
-                        name={product.name}
-                        desc={product.desc}
-                        price={product.price}
-                        stock={product.stock} />
+                        product = {product} />
                 )}
 
         </div>

@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"; /*es un hook,funcinoes internas de react q permite usar caractirista de react*/
 import Product from "./components/Product";
-import { v4 as uuidv4 } from 'uuid';
-import Header from "./components/shared/layout/Header";
-import Footer from "./components/shared/layout/Footer";
+// import { v4 as uuidv4 } from 'uuid';
+// import Header from "./components/shared/layout/Header";
+// import Footer from "./components/shared/layout/Footer";
+// import Main from "./components/shared/layout/Main";
 import ProductContainer from "./components/ProductContainer";
-import Main from "./components/shared/layout/Main";
 import Layout from "./components/shared/layout/Layout";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 function App() {  
   const [loadingProducts, setLoadingProducts] = useState(false);  /*No existe hoisting en react asi q pusimos arriba estos const*/
@@ -53,12 +56,20 @@ function App() {
       <Product key={uuidv4()} name={product.name} desc={product.desc} price={product.price}
       stock = {product.stock} />) */}
 
-      <Layout>
-        <ProductContainer products={products} loading = {loadingProducts}/>  
-      </Layout>
-      
-      
-            
+
+      <BrowserRouter>
+        <Layout> 
+          <Routes>
+            {/* <ProductDetail product={products[0]}/> */}
+              {/* <ProductContainer products={products} loading = {loadingProducts}/>   */}          
+            <Route exact path="/home" element={            
+              <ProductContainer products={products} loading = {loadingProducts}/>
+            } />                        
+            <Route path="/product/:productId" element={<ProductDetail />} />          
+            <Route path="*" element={<NotFound />} />          
+          </Routes>    
+        </Layout>
+      </BrowserRouter>    
     </div>
     //el return se ejecutará en el momento del montaje y se llamará cada vez que se actualice el componente
     // un componente se actualiza cada que cambia algún estado o tambien cambia el valor de alguna 'prop'

@@ -1,0 +1,23 @@
+.product-detail{
+    height: 720px;
+}
+
+.product-detail--gallery{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border: 2px solid green; */
+    border-radius: 20px;
+}
+
+.product-detail--info{
+    /* border: 2px solid blue; */
+}
+
+.product-detail--info_price{
+    font-size: 1.35rem;
+}
+
+.product-detail--info_stock{
+    font-size: 1.1rem;
+}

@@ -4,22 +4,46 @@
             "id":"a1",
             "name":"Razer Cynosa V2",
             "desc": "Teclado para juegos gamer ._.",
+            "longDesc" : "descripcion larga de un producto que se encuentra en un lugar de la web, y que está siendo consultada por un usuario interesado en el producto 1",
             "price": 240,
-            "stock":12
+            "stock":12,
+            "img": "https://images.unsplash.com/photo-1620987278429-ab178d6eb547?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdCUyMHByZXNlbnRhdGlvbnxlbnwwfHwwfHw%3D&w=1000&q=80"
         },
         {
             "id":"a2",
             "name":"Mouse Logi G605",
             "desc": "mouse con luces para verte gamer pero es solo finta xd",
+            "longDesc" : "descripcion larga de un producto que se encuentra en un lugar de la web, y que está siendo consultada por un usuario interesado en el producto 2",
             "price": 290,
-            "stock":16
+            "stock":16,
+            "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg"
         },
         {
             "id":"a3",
             "name":"Micrófono HyperX",
             "desc": "microfono gamer ",
+            "longDesc" : "descripcion larga de un producto que se encuentra en un lugar de la web, y que está siendo consultada por un usuario interesado en el producto 3",
             "price": 320,
-            "stock":52
+            "stock":52,
+            "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg"
+        },
+        {
+            "id":"a4",
+            "name":"Mouse Logi G605",
+            "desc": "mouse con luces para verte gamer pero es solo finta xd",
+            "longDesc" : "descripcion larga de un producto que se encuentra en un lugar de la web, y que está siendo consultada por un usuario interesado en el producto 4",
+            "price": 290,
+            "stock":16,
+            "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg"
+        },
+        {
+            "id":"a5",
+            "name":"Micrófono HyperX",
+            "desc": "microfono gamer ",
+            "longDesc" : "descripcion larga de un producto que se encuentra en un lugar de la web, y que está siendo consultada por un usuario interesado en el producto 5",
+            "price": 320,
+            "stock":52,
+            "img": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?cs=srgb&dl=pexels-math-90946.jpg&fm=jpg"
         }
     ]
 }

@@ -1,10 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../logo.svg';
 
-const Product = ({name, desc,price, stock}) => {
+const Product = ({product}) => {
+
+    const {id,name, desc,price, stock} = product;
+
     return (
         <div className="card mb-4" style={{width:"18rem"}}>
-            <img src={Logo} className="card-img-top" alt="product icon" />
+            <Link to={`/product/${id}`}>
+                <img src={Logo} className="card-img-top" alt="product icon" />
+            </Link>
+
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 {desc ? <p className="card-text text-secondary" style={{height:"3rem"}}>{desc}</p> : <hr/>}
